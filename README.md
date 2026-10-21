@@ -106,9 +106,12 @@ The fault changes `price * quantity` to `price + quantity`. Evaluation succeeds
 only if selected, reference and full runs fail for that scenario and pass for
 the others. XML-derived actual test-case counts, failures, errors, exit codes,
 and process wall times are saved in `reports/evaluation.json`. It checks exact
-reference target agreement separately. See [EVALUATION.md](EVALUATION.md) for
+reference target agreement separately. See [evaluation results](docs/EVALUATION.md) for
 the measured local run. Timings include interpreter and pytest startup and are
 one sequential sample per execution; there is no defensible speedup claim.
+The full suite includes the selector's own integration tests with nested Git and
+pytest subprocesses, whereas mapped selections run only application tests. This
+asymmetric synthetic workload is not representative of an industrial test suite.
 Reference agreement tests policy expectations, not dependency completeness or
 regression-detection correctness. The one fault is evidence about that fault only.
 

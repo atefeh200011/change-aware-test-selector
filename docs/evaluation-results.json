@@ -1,0 +1,188 @@
+{
+  "python": "3.14.6",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "timing": "One sequential run per selection; process wall clock includes pytest startup; no speedup claim",
+  "scenarios": [
+    {
+      "scenario": "isolated",
+      "changed_path": "demo_app/pricing.py",
+      "mode": "selected",
+      "selected_targets": [
+        "tests/test_pricing.py"
+      ],
+      "reference_agreement": true,
+      "selected": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 1.5758
+      },
+      "manual_reference": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 1.5135
+      },
+      "full": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 22.6548
+      }
+    },
+    {
+      "scenario": "shared",
+      "changed_path": "demo_app/shared.py",
+      "mode": "selected",
+      "selected_targets": [
+        "tests/test_pricing.py",
+        "tests/test_shipping.py"
+      ],
+      "reference_agreement": true,
+      "selected": {
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 2.6685
+      },
+      "manual_reference": {
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 2.3584
+      },
+      "full": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 24.0894
+      }
+    },
+    {
+      "scenario": "test",
+      "changed_path": "tests/test_shipping.py",
+      "mode": "selected",
+      "selected_targets": [
+        "tests/test_shipping.py"
+      ],
+      "reference_agreement": true,
+      "selected": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 2.9421
+      },
+      "manual_reference": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 2.0633
+      },
+      "full": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 24.532
+      }
+    },
+    {
+      "scenario": "configuration",
+      "changed_path": "pyproject.toml",
+      "mode": "full",
+      "selected_targets": [
+        "tests"
+      ],
+      "reference_agreement": true,
+      "selected": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 23.7899
+      },
+      "manual_reference": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 25.723
+      },
+      "full": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 28.8405
+      }
+    },
+    {
+      "scenario": "unmapped",
+      "changed_path": "demo_app/new.py",
+      "mode": "full",
+      "selected_targets": [
+        "tests"
+      ],
+      "reference_agreement": true,
+      "selected": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 27.0504
+      },
+      "manual_reference": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 25.6721
+      },
+      "full": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "exit_code": 0,
+        "wall_seconds": 25.4104
+      }
+    },
+    {
+      "scenario": "fault",
+      "changed_path": "demo_app/pricing.py",
+      "mode": "selected",
+      "selected_targets": [
+        "tests/test_pricing.py"
+      ],
+      "reference_agreement": true,
+      "selected": {
+        "tests": 5,
+        "failures": 3,
+        "errors": 0,
+        "exit_code": 1,
+        "wall_seconds": 3.5252
+      },
+      "manual_reference": {
+        "tests": 5,
+        "failures": 3,
+        "errors": 0,
+        "exit_code": 1,
+        "wall_seconds": 2.9672
+      },
+      "full": {
+        "tests": 40,
+        "failures": 3,
+        "errors": 0,
+        "exit_code": 1,
+        "wall_seconds": 26.2423
+      }
+    }
+  ]
+}
