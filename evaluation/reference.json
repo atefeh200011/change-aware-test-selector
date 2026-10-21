@@ -1,0 +1,8 @@
+{
+  "isolated": ["tests/test_pricing.py"],
+  "shared": ["tests/test_pricing.py", "tests/test_shipping.py"],
+  "test": ["tests/test_shipping.py"],
+  "configuration": ["tests"],
+  "unmapped": ["tests"],
+  "fault": ["tests/test_pricing.py"]
+}

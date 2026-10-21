@@ -1,0 +1,8 @@
+{
+  "mapping": {
+    "demo_app/__init__.py": ["tests/test_pricing.py", "tests/test_shipping.py"],
+    "demo_app/pricing.py": ["tests/test_pricing.py"],
+    "demo_app/shipping.py": ["tests/test_shipping.py"],
+    "demo_app/shared.py": ["tests/test_pricing.py", "tests/test_shipping.py"]
+  }
+}
