@@ -19,4 +19,6 @@ The independent final verification run passed **40 tests in 16.65 seconds**. A t
 
 These are single sequential process wall-clock samples including startup, not repeated benchmarks. The full suite contains 10 application cases and 30 selector cases, including nested subprocess integration tests; mapped selections run only application cases. This artificial workload and timing noise do not establish a production speed improvement. Reference agreement does not establish completeness, and catching one injected fault does not establish general regression-detection accuracy.
 
-Raw preserved snapshot: [evaluation-results.json](evaluation-results.json). Re-running the evaluator updates `reports/evaluation.json`, not this dated snapshot. GitHub Actions is authored but has not been executed on GitHub. No publishing or deployment was performed.
+Raw preserved snapshot: [evaluation-results.json](evaluation-results.json). Re-running the evaluator updates `reports/evaluation.json`, not this dated snapshot.
+
+Hosted verification was subsequently confirmed in [GitHub Actions run #1](https://github.com/atefeh200011/change-aware-test-selector/actions/runs/39594210872). Its `verify` job shows successful full-suite verification, controlled selection and fault demonstration, and artifact upload steps; the summary lists the `selection-reports` artifact. These hosted step results do not replace the local measurements above. The repository is public; no application deployment or production speedup is claimed.

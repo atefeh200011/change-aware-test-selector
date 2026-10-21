@@ -126,8 +126,16 @@ event-base selection, runs the controlled evaluation and uploads reports.
 SHA. If unavailable (for example a first push), CI explicitly uses the oldest
 available root commit, and the full suite still runs. On an unchanged initial
 commit that selection may be empty; the controlled evaluation still demonstrates
-nonempty selections. This workflow is provided and locally reviewed; a hosted
-GitHub Actions run has not been performed or claimed.
+nonempty selections.
+
+The repository is publicly available on GitHub. The CI verification workflow has
+completed successfully and uploaded selection reports.
+[Verified run #1](https://github.com/atefeh200011/change-aware-test-selector/actions/runs/39594210872)
+shows successful completion of the full-suite verification, controlled selection
+and fault demonstration, and artifact upload steps. The run produced the
+`selection-reports` artifact. Runtime and runner-update annotations did not fail
+this run. Detailed hosted logs require sign-in; the test counts and timings in
+the evaluation document are from the recorded local run.
 
 ## Limitations and ownership
 
@@ -144,4 +152,4 @@ Changes during selection/execution can race; run against a stable checkout.
 
 Implementation was developed with Codex assistance. Read the interview guide,
 run the scenarios and modify the mapping before presenting it as work you can
-explain. No repository has been published or deployment performed.
+explain. The source repository is public; no application deployment is claimed.
