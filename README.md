@@ -54,7 +54,7 @@ fallback, even if someone maps them. Shared application code such as
 
 `selector/core.py` validates mapping paths and unions test files. Changed
 `tests/**/test_*.py` files are included; other test-tree changes fall back.
-`docs/**`, README.md, INTERVIEW.md, CV.md and LICENSE are explicitly considered
+Documentation paths, including `docs/**`, README.md and LICENSE, are considered
 documentation only. Keep executable inputs out of those locations. Documentation
 mixed with code changes does not suppress code selection. No changes or only
 documentation changes give mode `none`, meaning no tests needed under this
@@ -137,7 +137,7 @@ and fault demonstration, and artifact upload steps. The run produced the
 this run. Detailed hosted logs require sign-in; the test counts and timings in
 the evaluation document are from the recorded local run.
 
-## Limitations and ownership
+## Limitations
 
 **Stale or incomplete mappings can miss dependencies.** The fallback protects
 unknown paths, not missing edges for a known mapped source. A new dependency on
@@ -150,6 +150,4 @@ import analysis, machine learning or automatic dependency inference. The sample
 application and one fault are small and cannot justify industrial-scale claims.
 Changes during selection/execution can race; run against a stable checkout.
 
-Implementation was developed with Codex assistance. Read the interview guide,
-run the scenarios and modify the mapping before presenting it as work you can
-explain. The source repository is public; no application deployment is claimed.
+The source repository is public; no application deployment is claimed.
