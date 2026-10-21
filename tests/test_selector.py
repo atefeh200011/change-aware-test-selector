@@ -47,6 +47,24 @@ def test_missing_target(mapped):
     assert select(root, [], mapping)["mode"] == "full"
 
 
+def test_shared_configuration_cannot_be_mapped_away(mapped):
+    root, mapping = mapped
+    mapping["tests/conftest.py"] = ["tests/test_a.py"]
+    assert select(root, changed("tests/conftest.py"), mapping)["mode"] == "full"
+
+
+def test_union_docs_and_deleted_mapped_source(mapped):
+    root, mapping = mapped
+    report = select(root, changed("src/a.py", "D") + changed("tests/test_a.py") + changed("README.md"), mapping)
+    assert report["mode"] == "selected"
+    assert report["selected_tests"] == ["tests/test_a.py"]
+
+
+def test_unsupported_status_falls_back(mapped):
+    root, mapping = mapped
+    assert select(root, changed("src/a.py", "U"), mapping)["mode"] == "full"
+
+
 @pytest.mark.parametrize("data", [{}, {"mapping": []}, {"mapping": {"src/a.py": []}}, {"mapping": {"src/a.py": ["../bad.py"]}}, {"mapping": {"src/a.py": ["-x"]}}])
 def test_bad_mapping(tmp_path, data):
     (tmp_path / "selection.json").write_text(json.dumps(data))
@@ -97,3 +115,20 @@ def test_committed_change_since_base(repo):
     git("add", ".")
     git("commit", "-qm", "change")
     assert changes(root, "HEAD~1") == changed("source.py")
+
+
+def test_added_and_deleted_tracked_paths_with_spaces(repo):
+    root, git = repo
+    (root / "added file.py").touch()
+    git("add", "added file.py")
+    (root / "source.py").unlink()
+    assert changes(root, "HEAD") == [{"path": "added file.py", "status": "A"}, {"path": "source.py", "status": "D"}]
+
+
+def test_net_worktree_contents_define_changes(repo):
+    root, git = repo
+    original = (root / "source.py").read_text()
+    (root / "source.py").write_text("value = 2\n")
+    git("add", "source.py")
+    (root / "source.py").write_text(original)
+    assert changes(root, "HEAD") == []

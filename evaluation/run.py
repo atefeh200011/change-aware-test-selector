@@ -62,6 +62,8 @@ def main():
             print(f"{scenario}: selected {selected['tests']} tests / {selected['wall_seconds']}s; full {full['tests']} / {full['wall_seconds']}s; agreement={agreement}", flush=True)
             if not agreement or any(m["exit_code"] != (1 if scenario == "fault" else 0) for m in (selected, manual, full)):
                 raise RuntimeError(f"Unexpected evaluation outcome: {row}")
+            if any(m["errors"] or not m["tests"] or (scenario == "fault" and not m["failures"]) for m in (selected, manual, full)):
+                raise RuntimeError(f"Expected real test outcomes, not collection errors: {row}")
             if scenario == "isolated":
                 write_report(report, ROOT / "reports/example")
     output = {"python": platform.python_version(), "platform": platform.platform(), "timing": "One sequential run per selection; process wall clock includes pytest startup; no speedup claim", "scenarios": results}
